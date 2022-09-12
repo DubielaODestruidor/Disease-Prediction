@@ -1,6 +1,6 @@
 # %%
-import SMOTE as SMOTE
 import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
 
 # %%
 dados = pd.read_csv('data/Disease-Prediction/Training.csv')
@@ -13,5 +13,7 @@ classes = dados['prognosis']
 classes_quantia = classes.value_counts()
 
 # %%
-resampler = SMOTE()
-atributos, classes = resampler.fit_resample(atributos, classes)
+decisionTree = DecisionTreeClassifier()
+diseaseTree = decisionTree.fit(atributos, classes)
+
+# %%
